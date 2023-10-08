@@ -22,6 +22,9 @@ class LowonganController extends Controller
         
         // inisialisasi skill dan jurusan pada siswa
         $profile = Profile::where('user_id', auth()->user()->id)->first();
+        if($profile == null){
+            return redirect()->route('profile.create');
+        }
         $s = json_decode($profile->skill_siswa);
         $j = $profile->jurusan_siswa;
         
