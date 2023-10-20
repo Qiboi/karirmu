@@ -8,35 +8,36 @@
 
     @include('components.navbar')
 
-    <div class="h-screen py-4 px-20 transition-all duration-300">
+    <div class="h-screen py-4 px-40 transition-all duration-300">
         <div class="grid grid-cols-12 gap-4">
-            <div class="col-span-12 bg-blue-500 p-4 text-center rounded-lg"> 
-                <p class="text-2xl font-semibold text-white">Kontak Kami</p>
-            </div>
-            <div class="col-span-3 py-10 bg-white rounded-md text-center group hover:scale-110 duration-200 hover:bg-blue-500">
-                <i class="fa-solid fa-envelope mx-auto fa-3x text-blue-500 group-hover:text-white"></i>
-                <p class="mt-4 font-medium text-base group-hover:text-white">Email</p>
-                <p class="font-medium text-base group-hover:text-white">admin@gmail.com</p>
-            </div>
-            <div class="col-span-3 py-10 bg-white rounded-md text-center group hover:scale-110 duration-200 hover:bg-blue-500">
-                <i class="fa-brands fa-facebook mx-auto fa-3x text-blue-500 group-hover:text-white"></i>
-                <p class="mt-4 font-medium text-base group-hover:text-white">Facebook</p>
-                <p class="font-medium text-base group-hover:text-white">admin@gmail.com</p>
-            </div>
-            <div class="col-span-3 py-10 bg-white rounded-md text-center group hover:scale-110 duration-200 hover:bg-blue-500">
-                <i class="fa-brands fa-instagram mx-auto fa-3x text-blue-500 group-hover:text-white"></i>
-                <p class="mt-4 font-medium text-base group-hover:text-white">Instagram</p>
-                <p class="font-medium text-base group-hover:text-white">admin@gmail.com</p>
-            </div>
-            <div class="col-span-3 py-10 bg-white rounded-md text-center group hover:scale-110 duration-200 hover:bg-blue-500">
-                <i class="fa-solid fa-address-book mx-auto fa-3x text-blue-500 group-hover:text-white"></i>
-                <p class="mt-4 font-medium text-base group-hover:text-white">Kontak</p>
-                <p class="font-medium text-base group-hover:text-white">admin@gmail.com</p>
-            </div>
-            <div class="col-start-2 col-span-10 py-10 bg-white rounded-md text-center group hover:scale-110 duration-200 hover:bg-blue-500">
-                <i class="fa-solid fa-house mx-auto fa-3x text-blue-500 group-hover:text-white"></i>
-                <p class="mt-4 font-medium text-base group-hover:text-white">Alamat</p>
-                <p class="font-medium text-base group-hover:text-white">admin@gmail.com</p> 
+            <div class="col-span-4 grid grid-cols-1 gap-4">
+                <div class="flex items-center p-4 rounded-md shadow-lg shadow-gray-400 bg-white space-x-4">
+                    <div class="flex h-12 w-12 justify-center items-center bg-orange-500 text-white rounded-sm">
+                        <i class="fa-solid fa-phone fa-lg"></i>                        
+                    </div>
+                    <div class="font-medium text-sm">
+                        <p>No. Telp</p>
+                        <p>082190182160</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-4 rounded-md shadow-lg shadow-gray-400 bg-white space-x-4">
+                    <div class="flex h-12 w-12 justify-center items-center bg-orange-500 text-white rounded-sm">
+                        <i class="fa-solid fa-envelope fa-lg"></i>                        
+                    </div>
+                    <div class="font-medium text-sm">
+                        <p>Email</p>
+                        <p>admin@gmail.com</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-4 rounded-md shadow-lg shadow-gray-400 bg-white space-x-4">
+                    <div class="flex h-12 w-12 justify-center items-center bg-orange-500 text-white rounded-sm">
+                        <i class="fa-solid fa-location-dot fa-lg"></i>                        
+                    </div>
+                    <div class="font-medium text-sm">
+                        <p>Lokasi</p>
+                        <p>Jln. Cikutra no.210</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

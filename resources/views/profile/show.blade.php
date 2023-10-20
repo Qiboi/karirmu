@@ -3,97 +3,63 @@
 @section('title', 'Profile')
 
 @section('content')
-
-{{-- @foreach ($profiles as $profile) --}}
     
     @include('components.navbar')
-    <div class="h-full py-4 px-20 transition-all duration-300 bg-gray-200">
-        <div class="grid grid-cols-12 gap-4">
-            <div class="col-span-12">
-                <div class="flex justify-center">
-                    <div class="bg-white text-center px-36 py-4 rounded-lg">
-                        <div class="mx-auto h-40 w-40">
-                            <img class="object-cover rounded-full" src="{{ asset($profile->foto) }}" alt="">
-                        </div>
-                        <p class="text-xl font-medium">{{ $profile->nama }}</p>
-                        <p class="text-lg font-medium">{{ $profile->jurusan->nama_jurusan }}</p>
-                        <p class="text-lg font-medium">{{ $profile->nis }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-span-6">
-                <div class="bg-white rounded-md">
-                    <div class="flex justify-center rounded-md bg-blue-500 p-4">
-                        <p class="text-lg text-white font-medium">Data Diri</p>
-                    </div>
-                    <div class="flex text-md font-medium p-6 ">
-                        <div class="grid grid-cols-3 w-full">
-                            <ul class="col-span-1 space-y-1">
-                                <li>Nama</li>
-                                <li>TTL</li>
-                                <li>Jenis Kelamin</li>
-                                <li>Alamat</li>
-                            </ul>
-                            <ul class="col-span-2 space-y-1">
-                               <li>: {{ $profile->nama }}</li> 
-                               <li>: {{ $profile->tempat_lahir }}, {{ $profile->tanggal_lahir }}</li> 
-                               <li>: {{ $profile->jenis_kelamin }}</li> 
-                               <li>: {{ $profile->alamat }}</li> 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-span-6">
-                <div class="bg-white rounded-md">
-                    <div class="flex justify-center rounded-md bg-blue-500 p-4">
-                        <p class="text-lg text-white font-medium">Kontak</p>
-                    </div>
-                    <div class="flex text-md font-medium p-6 ">
-                        <div class="grid grid-cols-3 w-full">
-                            <ul class="col-span-1 space-y-1">
-                                <li>Email</li>
-                                <li>Nomor Telepon</li>
-                            </ul>
-                            <ul class="col-span-2 space-y-1">
-                               <li>: {{ $profile->email }}</li> 
-                               <li>: {{ $profile->nomor_telepon }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-span-6">
-                <div class="bg-white rounded-md">
-                    <div class="flex justify-center rounded-md bg-blue-500 p-4">
-                        <p class="text-lg text-white font-medium">Skill</p>
-                    </div>
-                    <div class="flex text-md font-medium p-6 ">
-                        <div class="w-full">
-                            <ul class="space-y-1 list-disc list-inside">
-                                <ul class="ml-4 space-y-1 list-disc list-inside">
-                                    @foreach ($skills as $skill)
-                                        <li>{{ $skill->skill }}</li>
-                                    @endforeach
-                                </ul>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-span-12">
-                <div class="flex justify-end">
-                    <button class="py-2 px-4 bg-green-500 rounded-md">
-                        <a href="#" class="font-medium text-white">Perbarui Profile</a>
-                    </button>
-                </div>
 
+    <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-12 flex bg-midnight px-28 py-20 space-x-10">
+            <img src="{{ asset('bg.png') }}" alt="" class="w-40 h-40 rounded-full object-cover border-2 border-orange-500 shadow-sm">            
+            <div class="flex items-end">
+                <div class="text-white">
+                    <p class="text-2xl font-bold">Muhammad Rifqi Azhar</p>
+                    <p class="font-medium">SMKN 6 Bandung, Rekayasa Perangkat Lunak</p>
+                    <p class="font-medium">NIS : 0619101058</p>
+                    <div class="flex mt-4 text-sm space-x-4 tracking-wide text-gray-400">
+                        <p class="">TTL : Sukabumi, 21-04-2001</p>
+                        <p class="">Jenis Kelamin : Laki - laki</p>
+                    </div>
+                    <p class="text-sm tracking-wide text-gray-400">Alamat : Jln. Cikutra no.210</p>
+                </div>                
+            </div>
+        </div>
+        <div class="col-span-12 grid grid-cols-12 gap-4 px-28 -mt-12">
+            <div class="col-span-8">
+                <div class="bg-white p-4 shadow-lg shadow-gray-400 rounded-md border-t-2 border-orange-500">
+                    <div>
+                        <p class="font-bold mb-2 uppercase ml-2">Tentang</p>
+                        <p class="p-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia, architecto nulla. Nostrum, accusamus distinctio sed unde, accusantium assumenda harum in sapiente illo suscipit nobis vero magnam numquam excepturi modi possimus?</p>
+                    </div>
+                    <div>
+                        <p class="font-bold mb-2 uppercase ml-2">Skill</p>
+                        <div class="flex space-x-1 text-sm p-2">
+                            @foreach ($skills as $skill)
+                            <p class="rounded-full border-2 border-orange-300 px-4">{{ $skill->skill }}</p>            
+                            @endforeach
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-4">
+                <div class="bg-white p-4 shadow-lg shadow-gray-400 rounded-md border-t-2 border-orange-500">
+                    <p class="font-bold mb-2 uppercase ml-2">Kontak</p>
+                    <div class="p-2 gap-y-4 flex flex-col ">
+                        <div class="flex items-center space-x-4">
+                            <i class="fa-solid fa-envelope fa-xl text-orange-500"></i>
+                            <p class="font-medium">admin@gmail.com</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fa-solid fa-phone fa-xl text-orange-500"></i>
+                            <p class="font-medium">082190182160</p>
+                        </div>
+                    </div>  
+                </div>
             </div>
         </div>
     </div>
 
-    @include('components.footer')
+    <footer class="mt-28">
+        @include('components.footer')
+    </footer>
 
-{{-- @endforeach --}}
 
 @endsection

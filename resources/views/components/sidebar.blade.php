@@ -33,19 +33,20 @@
             </svg>
         </button>
 
-        <div class="h-screen bg-gray-900 transition-all duration-300 space-y-2 sm:relative"
+        <div class="h-screen bg-midnight transition-all duration-300 space-y-2 sm:relative"
              x-bind:class="{'w-64': $store.sidebar.full, 'w-64 sm:w-20':!$store.sidebar.full, 'top-0 left-0':$store.sidebar.navOpen, 'top-0 -left-64 sm:left-0':!$store.sidebar.navOpen}">
              
             <!-- LOGOMARCA NOME DA EMPRESA -->
             <h1 class="text-white font-black py-4"
-                x-bind:class="$store.sidebar.full ? 'text-2xl px-4 text-center' : 'text-center text-sm px-4 xm:px-2'"><a href="/">Admin Home</a></h1>
+                x-bind:class="$store.sidebar.full ? 'text-2xl px-4 text-center' : 'text-center text-xs px-4 sm:px-2'">
+                <a href="/"><span x-bind:class="$store.sidebar.full ? 'block' : 'hidden'">Admin </span>KARIR<span class="text-orange-500">MU</span></a></h1>
             
 
             <div class="px-4 space-y-2">
 
                 <!-- Sidebar Toggle-->
                 <button @click="$store.sidebar.full = !$store.sidebar.full"
-                        class="hidden sm:block focus:outline-none absolute p-1 -right-3 top-10 bg-gray-900 rounded-full shadow-md"
+                        class="hidden sm:block focus:outline-none absolute p-1 -right-3 top-10 bg-orange-500 rounded-full shadow-md"
                         >
                     <svg xmlns="http://www.w3.org/2000/svg"
                          class="h-4 w-4 transition-all duration-300 text-white transform"
@@ -66,8 +67,8 @@
                          x-on:mouseover="show = true"
                          x-on:mouseleave="show = false"
                          @click="$store.sidebar.active = 'home'"
-                         class="relative flex items-center text-gray-400 hover:text-gray-200 hover:bg-gray-800 space-x-2 rounded-md p-2 cursor-pointer"
-                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center' : !$store.sidebar.full, 'text-gray-200 bg-gray-800' : $store.sidebar.active=='home'}"
+                         class="relative flex items-center text-gray-400 hover:text-gray-200 hover:bg-orange-500 space-x-2 rounded-md p-2 cursor-pointer"
+                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center' : !$store.sidebar.full, 'text-gray-200 bg-orange-500' : $store.sidebar.active=='home'}"
                          >
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="h-6 w-6"
@@ -92,8 +93,8 @@
                          x-on:mouseover="show = true"
                          x-on:mouseleave="show = false"
                          @click="toggle('masterdata')"
-                         class="flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-gray-800 space-x-2 rounded-md p-2 cursor-pointer"
-                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-gray-800':$store.sidebar.active == 'masterdata', 'text-gray-400':$store.sidebar.active != 'masterdata'}">
+                         class="flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-orange-500 space-x-2 rounded-md p-2 cursor-pointer"
+                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-orange-500':$store.sidebar.active == 'masterdata', 'text-gray-400':$store.sidebar.active != 'masterdata'}">
                         <div class="relative flex space-x-2 items-center">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  class="h-6 w-6"
@@ -149,8 +150,8 @@
                          x-on:mouseover="show = true"
                          x-on:mouseleave="show = false"
                          @click="toggle('dataset')"
-                         class="flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-gray-800 space-x-2 rounded-md p-2 cursor-pointer"
-                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-gray-800':$store.sidebar.active == 'dataset', 'text-gray-400':$store.sidebar.active != 'dataset'}">
+                         class="flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-orange-500 space-x-2 rounded-md p-2 cursor-pointer"
+                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-orange-500':$store.sidebar.active == 'dataset', 'text-gray-400':$store.sidebar.active != 'dataset'}">
                         <div class="relative flex space-x-2 items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
@@ -222,7 +223,7 @@
                                         <button type="submit" data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm items-center mx-2 px-5 py-2.5 text-center mr-2">
                                             Ya
                                         </button>
-                                        <button @click="modelOpen = false" data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium mx-2 px-5 py-2.5 hover:text-gray-900 focus:z-10 ">
+                                        <button @click="modelOpen = false" data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium mx-2 px-5 py-2.5 hover:text-midnight focus:z-10 ">
                                             Tidak, batalkan
                                         </button>
                                         </form>
@@ -238,8 +239,8 @@
 
                 {{-- <!-- Posts -->
                 <div @click="$store.sidebar.active = 'posts'"
-                     class="relative flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-gray-800 space-x-2 rounded-md p-2 cursor-pointer"
-                     x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-gray-800':$store.sidebar.active == 'posts', 'text-gray-400':$store.sidebar.active != 'posts'}">
+                     class="relative flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-orange-500 space-x-2 rounded-md p-2 cursor-pointer"
+                     x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-orange-500':$store.sidebar.active == 'posts', 'text-gray-400':$store.sidebar.active != 'posts'}">
                     <div x-data="tooltip"
                          x-on:mouseover="show = true"
                          x-on:mouseleave="show = false"
@@ -258,12 +259,12 @@
                             x-bind:class="!$store.sidebar.full && show ? visibleClass : '' || !$store.sidebar.full && !show ? 'sm:hidden' : ''">Posts</h1>
                     </div>
                     <h1 x-bind:class="$store.sidebar.full ? '' : 'sm:hidden'" 
-                        class="w-5 h-5 p-1 bg-green-400 rounded-sm text-sm leading-3 text-center text-gray-900">8</h1>
+                        class="w-5 h-5 p-1 bg-green-400 rounded-sm text-sm leading-3 text-center text-midnight">8</h1>
                 </div>
 
                 <!-- Schedules -->
-                <div @click="$store.sidebar.active = 'schedules'" class="relative flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-gray-800 space-x-2 rounded-md p-2 cursor-pointer"
-                     x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-gray-800':$store.sidebar.active == 'schedules', 'text-gray-400':$store.sidebar.active != 'schedules' }">
+                <div @click="$store.sidebar.active = 'schedules'" class="relative flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-orange-500 space-x-2 rounded-md p-2 cursor-pointer"
+                     x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-orange-500':$store.sidebar.active == 'schedules', 'text-gray-400':$store.sidebar.active != 'schedules' }">
                     <div x-data="tooltip"
                          x-on:mouseover="show = true"
                          x-on:mouseleave="show = false"
@@ -294,7 +295,7 @@
                                   stroke-width="1"
                                   d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <h1 class="w-5 h-5 p-1 bg-pink-400 rounded-sm text-sm leading-3 text-center text-gray-900">3</h1>
+                        <h1 class="w-5 h-5 p-1 bg-pink-400 rounded-sm text-sm leading-3 text-center text-midnight">3</h1>
                     </div>
                 </div>
 
@@ -305,8 +306,8 @@
                          x-on:mouseover="show = true"
                          x-on:mouseleave="show = false"
                          @click="toggle('income')"
-                         class="flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-gray-800 space-x-2 rounded-md p-2 cursor-pointer"
-                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-gray-800':$store.sidebar.active == 'income', 'text-gray-400':$store.sidebar.active != 'income' }">
+                         class="flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-orange-500 space-x-2 rounded-md p-2 cursor-pointer"
+                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-orange-500':$store.sidebar.active == 'income', 'text-gray-400':$store.sidebar.active != 'income' }">
                         <div class="relative flex space-x-2 items-center">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  class="h-6 w-6"
@@ -381,8 +382,8 @@
                          x-on:mouseover="show = true"
                          x-on:mouseleave="show = false"
                          @click="toggle('promote')"
-                         class="flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-gray-800 space-x-2 rounded-md p-2 cursor-pointer"
-                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-gray-800':$store.sidebar.active == 'promote', 'text-gray-400':$store.sidebar.active != 'promote' }">
+                         class="flex justify-between items-center text-gray-400 hover:text-gray-200 hover:bg-orange-500 space-x-2 rounded-md p-2 cursor-pointer"
+                         x-bind:class="{'justify-start' : $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full, 'text-gray-200 bg-orange-500':$store.sidebar.active == 'promote', 'text-gray-400':$store.sidebar.active != 'promote' }">
                         <div class="relative flex space-x-2 items-center">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  class="h-6 w-6"

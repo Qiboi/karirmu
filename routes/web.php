@@ -40,8 +40,12 @@ All Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
   
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
     Route::resource('/profile', ProfileController::class);
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+
+    Route::resource('/lowongan', LowonganController::class);
+    Route::get('/lowongan', [LowonganController::class, 'index'])->name('lowongan.index');
     
     
 });
@@ -70,9 +74,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
 });
   
-
-Route::get('/lowongan/index', [LowonganController::class, 'index'])->name('lowongan.index');
-Route::get('/lowongan/show', [LowonganController::class, 'show'])->name('lowongan.show');
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 
 

@@ -22,22 +22,21 @@ class MasterCompanyController extends Controller
         return view('admin.mastercompany.create');
     }
     
-    public function store(Request $data)
+    public function store(Request $request)
     {
-        if ($data->file('logo')) {
-
-            $mitra = $data->file('logo');
+        if ($request->file('logo')) {
+            $mitra = $request->file('logo');
             $filename ='logo'."-".time().".{$mitra->extension()}";
-            $mitra->storeAs('public/image/logo', $filename);
-            $imageUrl = '/storage/image/logo/' . $filename;
+            $mitra->storeAs('image/logo', $filename, 'public'); // Simpan di dalam direktori publik
+            $imageUrl = '/storage/image/logo/' . $filename; // URL yang dapat diakses melalui web
         }else{
             $imageUrl = null;
         }
         Company::create([
-            'name' => $data['name'],
-            'alamat' => $data['alamat'],
-            'deskripsi' => $data['deskripsi'],
-            'kontak' => $data['kontak'],
+            'name' => $request['name'],
+            'alamat' => $request['alamat'],
+            'deskripsi' => $request['deskripsi'],
+            'kontak' => $request['kontak'],
             'logo' => $imageUrl,
         ]);
         
@@ -50,14 +49,14 @@ class MasterCompanyController extends Controller
         return view('admin.mastercompany.edit', compact('companies'));
     }
 
-    public function update(Request $data, $company)
+    public function update(Request $request, $company)
     {
         Company::select('*')->where('id', $company)->update([
-            'name' => $data['name'],
-            'alamat' => $data['alamat'],
-            'deskripsi' => $data['deskripsi'],
-            'kontak' => $data['kontak'],
-            'logo' => $data['logo'],
+            'name' => $request['name'],
+            'alamat' => $request['alamat'],
+            'deskripsi' => $request['deskripsi'],
+            'kontak' => $request['kontak'],
+            'logo' => $request['logo'],
         ]);
         return redirect()->route('mastercompany.index');
     }

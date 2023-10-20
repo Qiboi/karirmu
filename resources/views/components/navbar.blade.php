@@ -14,7 +14,7 @@
             <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:space-x-2 md:flex-row">
                 <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent md:mt-0 tracking-wide hover:text-orange-300 focus:outline-none focus:shadow-outline" href="/">Beranda</a>
                 <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent md:mt-0 tracking-wide hover:text-orange-300 focus:outline-none focus:shadow-outline" href="{{ route('lowongan.index') }}">Lowongan</a>                
-                <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent md:mt-0 tracking-wide hover:text-orange-300 focus:outline-none focus:shadow-outline" href="/kontak">Kontak</a>
+                {{-- <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent md:mt-0 tracking-wide hover:text-orange-300 focus:outline-none focus:shadow-outline" href="/kontak">Kontak</a> --}}
                 {{--  --}}
                 @guest
                 {{-- <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/register">Daftar</a> --}}
@@ -28,7 +28,7 @@
                     <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-40 z-30">
                         <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-700">
                             @if(auth()->user()->type == 'admin')
-                            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('admin.home') }}">
+                            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 text-gray-900 hover:text-white hover:bg-orange-500 focus:bg-orange-600 focus:outline-none focus:shadow-outline" href="{{ route('admin.home') }}">
                               <button class="w-full">Admin Home</button>
                             </a>
                             @else

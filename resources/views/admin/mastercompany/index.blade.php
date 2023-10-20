@@ -40,8 +40,8 @@
                             <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                 {{ $company->name }}
                             </td>
-                            <td class="px-6 py-4 font-medium whitespace-nowrap">
-                                {{ $company->alamat }}
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                                <p class="w-96 truncate">{{ $company->alamat }}</p>                                
                             </td>
                             {{-- <td class="px-6 py-4 font-medium whitespace-nowrap">
                                 <p class="w-24 truncate">{{ $datac->deskripsi }}</p>

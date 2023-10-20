@@ -7,6 +7,8 @@ use App\Models\Vacancy;
 use App\Models\Company;
 use App\Models\Profile;
 use App\Models\User;
+use App\Models\Skills;
+
 
 class LowonganController extends Controller
 {
@@ -130,12 +132,21 @@ class LowonganController extends Controller
         
         $sortId = Vacancy::whereIn('id', $idV)->orderByRaw("FIELD(id, " . implode(',', $idV) . ")")->get();
         
-        return view('lowongan/index', compact('vacancies', 'companies', 'sortId'));
+        
+        
+        return view('lowongan.index', compact('vacancies', 'companies', 'sortId'));
         
     }
 
-    public function show(){
+    public function show($id){
 
-        return view('lowongan/show');
+        $vacancy = Vacancy::where('id', $id)->first();  
+
+        $skill_id = json_decode($vacancy->id_skill);        
+        $skillIds = array_map('intval', $skill_id);
+        $skills = Skills::whereIn('id', $skillIds)->get();
+
+        return view('lowongan.show', compact('vacancy', 'skills'));
     }
+
 }

@@ -12,7 +12,7 @@
             <div class="col-span-12 bg-white rounded-lg">
                 <div class="flex p-4 space-x-6">
                     <div>
-                        <img class="h-40 w-40 object-contain" src="{{ asset($company->logo) }}" alt="">
+                        <img class="h-40 w-40 object-contain" src="{{ $company->logo }}" alt="">
                     </div>
                     <div class="space-y-4 my-4">
                         <p class="font-medium text-xl">{{ $company->name }}</p>

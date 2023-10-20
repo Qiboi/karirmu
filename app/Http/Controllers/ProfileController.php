@@ -32,14 +32,14 @@ class ProfileController extends Controller
         $date = date('Y-m-d', strtotime($request->tanggal_lahir));
 
         if ($request->file('foto')) {
-
             $mitra = $request->file('foto');
             $filename ='foto'."-".time().".{$mitra->extension()}";
-            $mitra->storeAs('public/image/foto', $filename);
-            $imageUrl = '/storage/image/foto/' . $filename;
-        }else{
+            $mitra->storeAs('image/foto', $filename, 'public'); // Simpan di dalam direktori publik
+            $imageUrl = '/storage/image/foto/' . $filename; // URL yang dapat diakses melalui web
+        } else {
             $imageUrl = null;
         }
+        
 
         // Membuat instansiasi objek profil dengan data yang dikirim dari form
         $profile = new Profile([
